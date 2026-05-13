@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from .models import Venda
+from .serializers import VendaSerializer
+
+
+class VendaViewSet(viewsets.ModelViewSet):
+    queryset = Venda.objects.all().order_by('-data_venda')
+    serializer_class = VendaSerializer
