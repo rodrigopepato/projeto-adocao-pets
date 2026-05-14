@@ -14,9 +14,9 @@
           Produtos
         </RouterLink>
 
-        <a href="#" class="block hover:text-blue-400 transition">
+        <RouterLink to="/vendas" class="block hover:text-blue-400 transition">
           Vendas
-        </a>
+        </RouterLink>
 
         <a href="#" class="block hover:text-blue-400 transition">
           Relatórios
