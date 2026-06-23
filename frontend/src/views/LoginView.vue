@@ -59,7 +59,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import axios from 'axios'
+import api from '../services/api'
 
 const router = useRouter()
 
@@ -73,9 +73,9 @@ async function login() {
   carregando.value = true
 
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/token/', {
-      username: username.value,
-      password: password.value
+    const response = await api.post('/token/', {
+        username: username.value,
+        password: password.value
     })
 
     localStorage.setItem('access_token', response.data.access)

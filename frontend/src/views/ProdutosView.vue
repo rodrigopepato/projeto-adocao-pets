@@ -1,11 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import api from '../services/api'
 
 const produtos = ref([])
 
 async function carregarProdutos() {
-  const response = await axios.get('http://127.0.0.1:8000/api/produtos/')
+  const response = await api.get('/produtos/')
   produtos.value = response.data
 }
 

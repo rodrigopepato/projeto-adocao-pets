@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import api from '../services/api'
 
 import {
   Chart as ChartJS,
@@ -34,9 +34,7 @@ const chartData = ref({
 })
 
 async function carregarRelatorio() {
-  const response = await axios.get(
-    'http://127.0.0.1:8000/api/relatorios/vendas/'
-  )
+  const response = await api.get('/relatorios/vendas/')
 
   chartData.value = {
     labels: response.data.vendas.map(
